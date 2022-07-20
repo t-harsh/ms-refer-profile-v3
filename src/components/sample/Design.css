@@ -1,0 +1,121 @@
+.Cards {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    color: #484644;
+}
+
+.Cards:hover {
+    box-shadow: 100px 100px 50px 12px #444791;
+}
+
+.Cards1 {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 400;
+    color: #484644;
+    display: flex;
+    width: 80%;
+}
+
+.card-head {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    color: #000000;
+    font-size: 27px;
+    text-align: center;
+    font-weight: 620;
+    margin-top: 2.5rem;
+}
+
+.info-content {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    color: #444791;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 2rem;
+}
+
+.info-button {
+    display: flex;
+    justify-content: center;
+}
+
+.glow {
+    color: #6366bd;
+    font-weight: 500;
+    font-style: oblique;
+}
+
+.heading {
+    font-family: "Segoe UI";
+    font-style: normal;
+    color: #484644;
+    font-size: 18px;
+    font-weight: 700px;
+    position: absolute;
+    left: 48%;
+    top: 56%;
+}
+
+.progressHeads {
+    font-weight: 600;
+    font-size: large;
+    color: #484644
+}
+
+.progressBox {
+    display: inline-flex;
+    line-height: 40px;
+}
+
+.progressLoader {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    color: #784d18;
+}
+
+.Intro {
+    font-family: 'Segoe UI';
+    font-style: normal;
+    color: #666363;
+    font-size: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.uploadResume {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+}
+
+.file-input label {
+    display: block;
+    position: relative;
+    width: 200px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #5558a5;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .2s ease-out;
+}
+
+input:hover+label,
+input:focus+label {
+    transform: scale(1.02);
+}
+
+input:focus + label {
+    outline: 1px solid #000;
+    outline: -webkit-focus-ring-color auto 2px;
+  }
