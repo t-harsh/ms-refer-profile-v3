@@ -302,7 +302,7 @@ export function Design() {
   // Reload the page
 
   const pageReload = () => {
-    setTimeout(function () { location.reload(); }, 3000);
+    setTimeout(function () { location.reload(); }, 3500);
   }
 
   //Call the Refer API
@@ -373,6 +373,15 @@ export function Design() {
       }
     });
   }
+
+  // Scroll to Top
+
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+    });
+  };
 
   //Focus to an input field
 
@@ -541,7 +550,7 @@ export function Design() {
                         left: "43%",
                         color: "rgb(58, 109, 78)",
                         fontWeight: "500",
-                        fontSize:"12px"
+                        fontSize: "12px"
                       }}
                       visibleTime={1500}
                     />
@@ -567,7 +576,8 @@ export function Design() {
                         left: "43%",
                         bottom: "0%",
                         color: "rgb(58, 109, 78)",
-                        fontWeight: "550"
+                        fontWeight: "500",
+                        fontSize: "12px"
                       }}
                       visibleTime={2000}
                     />
@@ -663,15 +673,15 @@ export function Design() {
                   {recommendedJobs
                     ? <JobCarousel />
                     : <div id="CarouselBanner" style={{
-                           backgroundColor: "rgba(243, 253, 194, 0.7)",
-                           fontSize: "13px",
-                           fontWeight: "500",
-                           height: "40px",
-                           width: "15rem",
-                           marginTop: "10%",
-                           marginLeft: "10%",
-                           textAlign: "center",
-                         }}>Upload Resume and we'll Recommend the Best Jobs for you!</div>
+                      backgroundColor: "rgba(243, 253, 194, 0.7)",
+                      fontSize: "13px",
+                      fontWeight: "500",
+                      height: "40px",
+                      width: "15rem",
+                      marginTop: "10%",
+                      marginLeft: "10%",
+                      textAlign: "center",
+                    }}>Upload Resume and we'll Recommend the Best Jobs for you!</div>
                   }
 
 
@@ -785,8 +795,8 @@ export function Design() {
               &nbsp;&nbsp;&nbsp;&nbsp;
               <Button primary onClick={handleClickEvent}>Save & Submit</Button>
               &nbsp;&nbsp;&nbsp;&nbsp;
-              </div>
-              <div style={{marginTop:"1%"}}>
+            </div>
+            <div style={{ marginTop: "1%" }}>
               {saveProfile
                 ? <Banner
                   title="Profile Saved"
@@ -797,7 +807,8 @@ export function Design() {
                     position: "absolute",
                     left: "38%",
                     color: "rgb(58, 109, 78)",
-                    fontWeight: "550"
+                    fontWeight: "500",
+                    fontSize:"12px"
                   }}
                   visibleTime={1500}
                 />
@@ -812,20 +823,21 @@ export function Design() {
                     width: "12rem",
                     position: "absolute",
                     right: "36%",
-                    buttom:"0%",
+                    buttom: "0%",
                     color: "rgb(58, 109, 78)",
-                    fontWeight: "550"
+                    fontWeight: "500",
+                    fontSize: "12px"
                   }}
                   visibleTime={1500}
                 />
                 : <></>
               }
             </div>
-            <div style={{display:"flex", justifyContent:"right", marginRight:"5%"}}>
-                <Button type="button" circular icon={<ArrowUpIcon />} onClick={() => scrollToSmoothly(document.getElementById("top-card").offsetTop, 500)} title="Go to the top" style={{psoition:"absolute", bottom:"40px"}}/>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <Button type="button" circular icon={<RetryIcon />} onClick={() => window.location.reload(false)} title="Reload" style={{psoition:"absolute", bottom:"40px"}}/>
-              </div>
+            <div style={{ display: "flex", justifyContent: "right", marginRight: "5%" }}>
+              <Button type="button" circular icon={<ArrowUpIcon />} onClick={scrollToTop} title="Go to the top" style={{ psoition: "absolute", bottom: "40px" }} />
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <Button type="button" circular icon={<RetryIcon />} onClick={() => window.location.reload(false)} title="Reload" style={{ psoition: "absolute", bottom: "40px" }} />
+            </div>
           </Segment>
 
 

@@ -152,6 +152,12 @@ export const Forms = (props) => {
 
     }
 
+    // Page Reload
+
+    const pageReload = () => {
+        setTimeout(function () { location.reload(); }, 4000);
+      }
+
     // Update Profile
 
     const sendForm = async (e) => {
@@ -232,6 +238,7 @@ export const Forms = (props) => {
                 console.error('Error:', error);
             });
         setReferCall(true);
+        pageReload();
     }
 
     //Generate guid id for Resume
@@ -296,7 +303,7 @@ export const Forms = (props) => {
             <div>
                 {saveProfile
                     ? <Banner
-                        title="Profile Saved"
+                        title="Successful!"
                         css={{
                             backgroundColor: "rgba(173, 210, 173, 0.7)",
                             height: "30px",
