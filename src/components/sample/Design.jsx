@@ -113,6 +113,8 @@ export function Design() {
     setLoadCarousel(true);
     setAutofill(true);
 
+    document.getElementById("CarouselBanner").innerHTML = "Please be patient. <br/> Fetching Jobs for you...";
+
     // Generating Id Token for the Refer API using MSAL Provider
 
     instance.acquireTokenSilent({
@@ -161,10 +163,10 @@ export function Design() {
   const getRecommendedJobs = (skills) => {
 
     //Temporary Access Token for the Recommendations API
-    const bearer = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjJaUXBKM1VwYmpBWVhZR2FYRUpsOGxWMFRPSSJ9.eyJhdWQiOiJmNTEwNzM1YS02YzlhLTQ1NDEtODgyOC03YWQyN2QyOTg5NzYiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE2NTgyODk0NTcsIm5iZiI6MTY1ODI4OTQ1NywiZXhwIjoxNjU4Mjk0MTEyLCJhaW8iOiJBWFFBaS84VEFBQUFYS1o3cWp4b0hNbDFTSW8wT25NVWFFeGt1UkRBSDNzMWlOaUUyNWtRUytmQlA1aWZRT3dtbm15a1J2YnlZSjVVN042YmFTTUtLK0dESDRueGNCdFB1LzNpN0h6Y0ZDTDhKWGZWU2ZZOFNrYm9mNm0rbmYwZFd4aWxyS3BjWk5VV2dFcGNKTUZ2MkVPUXN2WXFmSWNydXc9PSIsImF6cCI6ImY1MTA3MzVhLTZjOWEtNDU0MS04ODI4LTdhZDI3ZDI5ODk3NiIsImF6cGFjciI6IjAiLCJuYW1lIjoiSGFyc2ggU2hyaXZhc3RhdmEiLCJvaWQiOiI4ZWNhYzIwZi04MDE1LTRjNmQtOTk3NC03NTMwNDMyZTQ0ZjQiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0LWhhcnNoc2hAbWljcm9zb2Z0LmNvbSIsInJoIjoiMC5BUUVBdjRqNWN2R0dyMEdScXkxODBCSGJSMXB6RVBXYWJFRkZpQ2g2MG4wcGlYWWFBTmMuIiwic2NwIjoiRGlyZWN0b3J5LlJlYWQuQWxsIFVzZXIuUmVhZCBVc2VyLlJlYWQuQWxsIFVzZXIuUmVhZEJhc2ljLkFsbCIsInN1YiI6IjFVREpNMktiTjNDT1V3WjQ4Rmx6Q1NZZU81WXFPOExJVEViMDdzbXpYTzQiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ1cG4iOiJ0LWhhcnNoc2hAbWljcm9zb2Z0LmNvbSIsInV0aSI6IjJxXzF4TW44MzAtMndsYk1sNkVPQUEiLCJ2ZXIiOiIyLjAifQ.eJdI7JZMs2VeOxZ0LN5XddLQ3k0uXcEbYtEDyjb585DWUQ-9X9k8C37UXIJEIwCLBWgI-uRxGy5tPRfWOtwa1CW200s1LmmFwzYe2wSNJCUiAdDbRUV88ZXL-3BozLZMDhLHb5LrFhpfWSIS_SeDjvKgrCrKrKx9SoTBZrPv1WgdffXxoBeHvvhzN48wzWsBmYZvfUTbIRolVLVfsfnsuHM0Yisc-xp380C6UY7fygEi_pdcHATy8j6DbyzbgLevA4pvs3pU1kJyys1czjA70nNYuCG8hbiWdyRPA01rR4HLJz7W0kmDOC541fA0walnIRrP3QIuQJ3UHfKF9aGBYQ";
+    const bearer = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjJaUXBKM1VwYmpBWVhZR2FYRUpsOGxWMFRPSSJ9.eyJhdWQiOiJmNTEwNzM1YS02YzlhLTQ1NDEtODgyOC03YWQyN2QyOTg5NzYiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE2NTg0MDQzNzYsIm5iZiI6MTY1ODQwNDM3NiwiZXhwIjoxNjU4NDA5MjM1LCJhaW8iOiJBWFFBaS84VEFBQUFVY0VlMTlIQjhOKyszclJoN2pVdEtDS0J3TFlOWDdobTl3TysrOXhnRm1xbndTa3dITCtlUmdhMHU4K0JDdzRaNnAwTEF0NVNodTc1Tm9yb08yMDA1ZEpsbXZGWVVlalRaK0lzZlI2b2FROEYxWDNhVkRoRXQ0WkZZVjhKd3AyaktHRlI5aThjRWdKMDlmZEMxNm1KeHc9PSIsImF6cCI6ImY1MTA3MzVhLTZjOWEtNDU0MS04ODI4LTdhZDI3ZDI5ODk3NiIsImF6cGFjciI6IjAiLCJuYW1lIjoiSGFyc2ggU2hyaXZhc3RhdmEiLCJvaWQiOiI4ZWNhYzIwZi04MDE1LTRjNmQtOTk3NC03NTMwNDMyZTQ0ZjQiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0LWhhcnNoc2hAbWljcm9zb2Z0LmNvbSIsInJoIjoiMC5BUUVBdjRqNWN2R0dyMEdScXkxODBCSGJSMXB6RVBXYWJFRkZpQ2g2MG4wcGlYWWFBTmMuIiwic2NwIjoiRGlyZWN0b3J5LlJlYWQuQWxsIFVzZXIuUmVhZCBVc2VyLlJlYWQuQWxsIFVzZXIuUmVhZEJhc2ljLkFsbCIsInN1YiI6IjFVREpNMktiTjNDT1V3WjQ4Rmx6Q1NZZU81WXFPOExJVEViMDdzbXpYTzQiLCJ0aWQiOiI3MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDciLCJ1cG4iOiJ0LWhhcnNoc2hAbWljcm9zb2Z0LmNvbSIsInV0aSI6InA5b1JGbHdVcUVTSll2V3Y5YzRiQUEiLCJ2ZXIiOiIyLjAifQ.i4WqplJ-aIDvl22yX472C2CVcJsz5Ly0X4Wm9i8csdHQ_-TbeDwkvYanlKxRXJvSDFct6sbHjSoDS7xPaVgFqzLRsTk3Rwm_NKQZ8g_vedGn12GnyV9vK4XzqtvGyo7o9hUUkFN_dxq5lAIPRNVVm75fXlTJh-T5VbsGHfkxCXxA3KaLFhbXmuyv6wJu5nF5qNGTQ7tzxb9krEwFucHywa8SeJnMYU3pg6BMcvQGa4V6FCjtIR56vCSHm6sBGPTujzoEL-tfUC0HU6YAAJQ1RT22yWGDVM5cJG7jQjPVEY1raS746-UHjsAClKYpcBJlYRU20WpwwdQsCQHPfGFFYg";
     console.log("here = ", skills);
 
-    fetch('https://msrecruitdev.microsoft.com/interviewservice/v1/TM/jobRecommendationsBySkills', {
+    fetch('https://msgtaivservicedev.azurewebsites.net/v1/TM/jobRecommendationsBySkills', {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': bearer
@@ -192,6 +194,7 @@ export function Design() {
 
     const fillRecommendedJob = (item) => {
       Job.handleSet(item.externalJobOpeningId);
+      document.getElementById("jobValidation").innerHTML = item.externalJobOpeningId + " - " + item.jobTitle;
     }
 
 
@@ -263,6 +266,7 @@ export function Design() {
 
   const sendForm = async (e) => {
     if (isSubmit == true) {
+
 
       const { FirstName, LastName, InputEmail, MobileNo, Location, Relation, About, Code } = e.target
 
@@ -530,13 +534,14 @@ export function Design() {
                       title="Resume Uploaded"
                       css={{
                         backgroundColor: "rgba(173, 210, 173, 0.7)",
-                        height: "30px",
-                        width: "10rem",
+                        height: "25px",
+                        width: "8rem",
                         position: "absolute",
-                        bottom: "45%",
-                        left: "18%",
+                        bottom: "33%",
+                        left: "43%",
                         color: "rgb(58, 109, 78)",
-                        fontWeight: "550"
+                        fontWeight: "500",
+                        fontSize:"12px"
                       }}
                       visibleTime={1500}
                     />
@@ -657,18 +662,16 @@ export function Design() {
                   }
                   {recommendedJobs
                     ? <JobCarousel />
-                    : <Banner
-                      title="Upload Resume and we'll Recommend the Best Jobs for you!"
-                      css={{
-                        backgroundColor: "rgba(243, 253, 194, 0.7)",
-                        fontSize: "13px",
-                        fontWeight: "500",
-                        height: "30px",
-                        width: "15rem",
-                        marginTop: "10%",
-                        marginLeft: "10%",
-                      }}
-                    />
+                    : <div id="CarouselBanner" style={{
+                           backgroundColor: "rgba(243, 253, 194, 0.7)",
+                           fontSize: "13px",
+                           fontWeight: "500",
+                           height: "40px",
+                           width: "15rem",
+                           marginTop: "10%",
+                           marginLeft: "10%",
+                           textAlign: "center",
+                         }}>Upload Resume and we'll Recommend the Best Jobs for you!</div>
                   }
 
 
@@ -704,16 +707,16 @@ export function Design() {
 
                   <label htmlFor="Relation">How do you know this person?*</label>
                   <select name="Relation" id="Relation" aria-describedby="Relation" placeholder="" style={{ margin: "5px 0 5px 0", height: "2rem", backgroundColor: "#F3F2F1", border: "none", padding: "0.2rem 0.4rem", fontFamily: "Segoe UI", color: "#484644" }}>
+                    <option value={4}>I have worked with this person before</option>
                     <option value={1}>I don't know this person directly</option>
                     <option value={2}>I know this person, but haven't worked with them</option>
                     <option value={3}>I went to college/university with this person</option>
-                    <option value={4}>I have worked with this person before</option>
                   </select>
                   <br />
 
 
 
-                  <FormRadioGroup name="isUniversity" id="isUniversity" label="Is your referral a current university student or recent graduate (within last 12 months)?*" vertical required defaultCheckedValue="true" onChange={changeisUniversity} items={UnivItems} style={{ fontFamily: "Segoe UI", color: "#484644" }} />
+                  <FormRadioGroup name="isUniversity" id="isUniversity" label="Is your referral a current university student or recent graduate (within last 12 months)?*" vertical required defaultCheckedValue="false" onChange={changeisUniversity} items={UnivItems} style={{ fontFamily: "Segoe UI", color: "#484644" }} />
                   <br />
 
 
@@ -778,13 +781,12 @@ export function Design() {
             }}
           >
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <Button type="button" circular icon={<RetryIcon />} onClick={() => window.location.reload(false)} title="Reload" />
-              &nbsp;&nbsp;&nbsp;&nbsp;
               <Button onClick={changeSubmit} secondary>Save Profile</Button>
               &nbsp;&nbsp;&nbsp;&nbsp;
               <Button primary onClick={handleClickEvent}>Save & Submit</Button>
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <Button type="button" circular icon={<ArrowUpIcon />} onClick={() => scrollToSmoothly(document.getElementById("top-card").offsetTop, 500)} title="Go to the top" />
+              </div>
+              <div style={{marginTop:"1%"}}>
               {saveProfile
                 ? <Banner
                   title="Profile Saved"
@@ -793,7 +795,7 @@ export function Design() {
                     height: "30px",
                     width: "10rem",
                     position: "absolute",
-                    left: "28%",
+                    left: "38%",
                     color: "rgb(58, 109, 78)",
                     fontWeight: "550"
                   }}
@@ -809,7 +811,8 @@ export function Design() {
                     height: "30px",
                     width: "12rem",
                     position: "absolute",
-                    right: "23%",
+                    right: "36%",
+                    buttom:"0%",
                     color: "rgb(58, 109, 78)",
                     fontWeight: "550"
                   }}
@@ -818,6 +821,11 @@ export function Design() {
                 : <></>
               }
             </div>
+            <div style={{display:"flex", justifyContent:"right", marginRight:"5%"}}>
+                <Button type="button" circular icon={<ArrowUpIcon />} onClick={() => scrollToSmoothly(document.getElementById("top-card").offsetTop, 500)} title="Go to the top" style={{psoition:"absolute", bottom:"40px"}}/>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <Button type="button" circular icon={<RetryIcon />} onClick={() => window.location.reload(false)} title="Reload" style={{psoition:"absolute", bottom:"40px"}}/>
+              </div>
           </Segment>
 
 

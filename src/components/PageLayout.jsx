@@ -4,7 +4,7 @@ import { useIsAuthenticated } from "@azure/msal-react";
 import { SignInButton } from "./SignInButton";
 import { SignOutButton } from "./SignOutButton";
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
-import "./../styles.css"
+import "./../styles.css";
 
 /**
  * Renders the navbar component with a sign-in or sign-out button depending on whether or not a user is authenticated
@@ -19,7 +19,7 @@ export const PageLayout = (props) => {
             <ul>
                 <Link to="/" className="site-title">
                     <ChannelShareIcon className="icon"/>
-                    <b> MS Referrals </b>
+                    <b style={{color: "#444791"}}> MS Referral VNxT </b>
                 </Link>
                 
                     <CustomLink to="/Refer">Refer</CustomLink>
